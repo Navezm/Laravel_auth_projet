@@ -106,9 +106,10 @@ class AvatarController extends Controller
     public function destroy(Avatar $avatar)
     {
         Storage::disk('public')->delete('img/'.$avatar->src);
-        $users = User::all();
-        foreach ($users->where('avatar_id',$avatar->id) as $item) {
+        $users = User::where('avatar_id','=',$avatar->id)->get();
+        foreach ($users as $item) {
             $item->avatar_id = 1;
+            $item->save();
         }
         $avatar->delete();
         return redirect('avatars');
