@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avatar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,9 @@ class UserController extends Controller
     {
         $users = User::all();
         $userLog = Auth::user();
-        return view('pages.user.user', compact('users','userLog'));
+        $avatars = Avatar::where('id', '>', 1)->get();
+        $default = Avatar::first();
+        return view('pages.user.user', compact('users','userLog', 'avatars', 'default'));
     }
 
     /**
@@ -61,7 +64,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -80,7 +83,7 @@ class UserController extends Controller
             "avatar_id"=>"required"
         ]);
 
-        $updateEntry=User::find($id);
+        $updateEntry = User::find($id);
         $updateEntry->name = $request->name;
         $updateEntry->age = $request->age;
         $updateEntry->email = $request->email;

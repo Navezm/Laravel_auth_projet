@@ -79,15 +79,19 @@
                             <label for="avatar_id" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
 
                             <div class="col-md-6">
-                                @foreach ($avatars as $item)
-                                    <input id="avatar_id" type="radio" class="@error('avatar_id') is-invalid @enderror" name="avatar_id" required autocomplete="avatar_id" value="{{$item->id}}"> <img height="50px" src="{{asset('img/'.$item->src)}}" alt=""> <br>
-                                @endforeach
+                                @if (count($avatars) == 0)
+                                    <input id="avatar_id" type="radio" class="@error('avatar_id') is-invalid @enderror" name="avatar_id" required autocomplete="avatar_id" value="{{$default->id}}"> <img height="50px" src="{{asset('img/'.$default->src)}}" alt=""> <br>
+                                @else
+                                    @foreach ($avatars as $item)
+                                        <input id="avatar_id" type="radio" class="@error('avatar_id') is-invalid @enderror" name="avatar_id" required autocomplete="avatar_id" value="{{$item->id}}"> <img height="50px" src="{{asset('img/'.$item->src)}}" alt=""> <br>
+                                    @endforeach
 
-                                @error('avatar_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('avatar_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                @endif
                             </div>
                         </div>
 
