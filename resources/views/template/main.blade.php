@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <div class="w-100 d-flex justify-content-end">
+    <div id="register-div" class="w-100 d-flex justify-content-end">
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-2 py-2 sm:block">
                 @auth
@@ -23,8 +23,15 @@
             </div>
         @endif
     </div>
+    <div class="row m-0 p-0">
+        <div id="menu-bo" class="bg-secondary m-0 col-2">
+            @include('partials.menu-bo')
+        </div>
+        <div class="col-10 m-0">
+            @yield('content')
+        </div>
+    </div>
 
-    @yield('content')
 
     <script src="{{asset('js/app.js')}}"></script>
 </body>
