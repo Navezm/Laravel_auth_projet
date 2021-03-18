@@ -1,4 +1,13 @@
 <h1>Edit Avatar</h1>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="/avatars/{{$edit->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
