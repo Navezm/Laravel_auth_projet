@@ -36,7 +36,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $newEntry = new Category;
+        $newEntry->name = $request->name;
+        $newEntry->save();
+        return redirect('categories');
     }
 
     /**
@@ -58,7 +65,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $edit = $category;
+        return view('pages.category.edit',compact('edit'));
     }
 
     /**
@@ -70,7 +78,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required'
+        ]);
+        
+        $updateEntry = $category;
+        $updateEntry->name = $request->name;
+        $updateEntry->save();
+        return redirect('categories');
     }
 
     /**
@@ -81,6 +96,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect('categories');
     }
 }
