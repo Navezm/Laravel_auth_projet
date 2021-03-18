@@ -2,12 +2,12 @@
     <h1 class="my-4 ml-3 text-white">
         Menu
     </h1>
-    <a href="/" class="btn btn-secondary">Avatar</a>
+    <a href="/avatars" class="btn btn-secondary">Avatar</a>
     <br>
-    <a href="/" class="btn btn-secondary">User</a>
+    <a href="/users" class="btn btn-secondary">User</a>
     <br>
-    <a href="/" class="btn btn-secondary">Categories</a>
+    <a href="/categories" class="btn btn-secondary">Categories</a>
     <br>
-    <a href="/" class="btn btn-secondary">Images</a>
+    <a href="/images" class="btn btn-secondary">Images</a>
     
 </div>

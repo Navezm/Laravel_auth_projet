@@ -27,7 +27,10 @@
         <div id="menu-bo" class="bg-secondary m-0 col-2">
             @include('partials.menu-bo')
         </div>
-        <div class="col-10 m-0">
+        <div class="col-2 ml-5">
+
+        </div>
+        <div class="col-8 ml-5">
             @yield('content')
         </div>
     </div>
