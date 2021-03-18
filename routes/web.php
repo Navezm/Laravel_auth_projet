@@ -29,6 +29,8 @@ Route::resource('users', UserController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('images', ImageController::class);
 
+Route::get('/download/{id}', [ImageController::class,'download']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

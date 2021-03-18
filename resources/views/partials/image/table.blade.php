@@ -14,6 +14,7 @@
                                 <button class="btn btn-danger mx-2" type="submit">Delete</button>
                             </form>
                             <a href="/images/{{$item->id}}/edit" class="btn btn-success">Edit</a>
+                            <a class="btn btn-warning mx-2" href="/download/{{$item->id}}">Download</a>
                         </div>
                     </div>
                 </div>
